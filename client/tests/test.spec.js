@@ -1,0 +1,32 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:5173/');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.locator('input[type="email"]').click();
+  await page.locator('input[type="email"]').fill('namal@gmail.com');
+  await page.locator('input[type="password"]').click();
+  await page.locator('input[type="password"]').fill('password');
+  await page.locator('form').getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('button', { name: 'New Task' }).click();
+  await page.locator('form input[type="text"]').click();
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('S');
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('Study ');
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('Study A');
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('Study Application ');
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('Study Application F');
+  await page.locator('form input[type="text"]').press('CapsLock');
+  await page.locator('form input[type="text"]').fill('Study Application Framework');
+  await page.locator('textarea').click();
+  await page.locator('textarea').press('CapsLock');
+  await page.locator('textarea').fill('S');
+  await page.locator('textarea').press('CapsLock');
+  await page.getByText('S', { exact: true }).fill('Study 1st and 2nd lectures');
+  await page.getByRole('button', { name: 'Create Task' }).click();
+  await page.getByRole('button', { name: 'Logout' }).click();
+});
